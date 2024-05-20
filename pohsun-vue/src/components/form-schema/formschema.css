@@ -1,0 +1,75 @@
+.fs-main {
+  --fs-fontSize: 1rem;
+  --fs-main-color: #3f8dff;
+  --fs-main-color-a: #3f8dff66;
+  --fs-outline-color: #000000;
+  --fs-size: calc(var(--fs-fontSize) * 1.5);
+  --fs-gap: 15px;
+  --fs-inner-gap: 10px;
+  /* select, multi-select */
+  --fs-select-second: 0.3s; /* SelectComponent.vue裡面changeByModel的setTimeout也要改 */
+
+  display: grid;
+  gap: var(--fs-gap);
+  line-height: var(--fs-size);
+  font-size: var(--fs-fontSize);
+}
+
+.fs-components {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--fs-inner-gap);
+}
+
+.fs-components::after {
+  content: attr(data-content);
+  grid-column: 1 / -1;
+  color: red;
+}
+
+.fs-outputBtn {
+  justify-self: center;
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+}
+
+.fs-outputBtn__sampleBtn {
+  padding: 5px 10px;
+  min-width: max-content;
+  font-size: var(--fs-fontSize);
+  border-radius: 9999px;
+  background-color: var(--fs-main-color-a);
+  border: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.fs-component__input {
+  padding: 10px;
+  width: 100%;
+  min-width: max-content;
+  font-size: inherit;
+  line-height: inherit;
+  border-radius: 15px;
+  border: 1px solid black;
+  outline: none;
+  accent-color: var(--fs-main-color);
+}
+
+.fs-component__input-multi {
+  padding: 3px;
+  width: unset;
+  min-width: unset;
+  border: none;
+}
+
+/* focus樣式 */
+.fs-component__input:focus.fs-component__inputFocusTarget,
+.fs-component__input:focus ~ .fs-component__inputFocusTarget,/* for switch */ 
+.fs-component__inputFocusTarget:has(.fs-component__input:focus)/* for multi-select */ {
+  outline: 1px auto var(--fs-main-color);
+  /* border-color: var(--fs-main-color); */
+  /* border: 1px solid var(--fs-main-color); */
+  /* filter: drop-shadow(0 0 3px var(--fs-outline-color)); */
+}

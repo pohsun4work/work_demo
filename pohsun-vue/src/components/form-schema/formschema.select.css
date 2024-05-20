@@ -1,0 +1,35 @@
+.fs-select__options {
+  padding: 0 0 0 7.5px;
+  border-radius: 0 0 15px 15px;
+  background-color: #fff;
+  outline: 1px auto var(--fs-main-color);
+  /* 選項上方10px 最後一個選項下方7px 
+     * 選項line-height大概1.38rem 
+     * 最多顯示5個
+     */
+  max-height: calc(5 * (1.38rem + 10px) + 7px);
+}
+
+/* .fs-select__options--selected {
+  color: var(--fs-main-color);
+} */
+
+.fs-select__option {
+  margin: 7px 0;
+  padding-top: 3px;
+  line-height: initial;
+  cursor: pointer;
+  border-bottom: 0.3px solid #ccc;
+}
+
+.fs-select__input,
+.fs-multi {
+  transition: border-radius var(--fs-select-second) linear;
+}
+
+.fs-select__input:focus,
+.fs-multi:has(.fs-multi__input:focus) {
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
+  border-color: var(--fs-main-color);
+}
