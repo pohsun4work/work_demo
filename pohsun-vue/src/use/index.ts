@@ -1,0 +1,1 @@
+export { registerEvent } from "./registerEvent";

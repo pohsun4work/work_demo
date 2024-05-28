@@ -5,6 +5,7 @@ import { RouterLink } from "vue-router";
 const demoPages = [
   { title: "dialog", link: "/demo/dialog" },
   { title: "form schema", link: "/demo/formSchema" },
+  { title: "knob", link: "/demo/knob" },
 ];
 </script>
 
