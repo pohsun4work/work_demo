@@ -44,8 +44,12 @@ const mainHandler = (event: Event) => {
   let percentage = (angle - props.startPosition) / 360;
   if (percentage < 0) percentage = 1 + percentage;
 
-  return (model.value =
-    Math.ceil((props.maxValue - props.minValue) * percentage) + props.minValue);
+  const newModel =
+    Math.ceil((props.maxValue - props.minValue) * percentage) + props.minValue;
+
+  if (newModel === props.maxValue) emits("whileMax");
+
+  return (model.value = newModel);
 };
 
 onMounted(() => {
